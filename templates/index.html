@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+  <meta charset="UTF-8">
+  <title>AIML Score Predictor</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: green;
+   color: white;
+   text-align: center;
+}
+.disc {
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   color: white;
+   text-align: center;
+}
+</style
+</head>
+
+<body>
+ <div class="login">
+	<h1>Predict your AIML Final Score</h1>
+     <h3> Enter your scores in Internal Assessment</h3>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="IA1" placeholder="Enter IA1 score" required="required" />
+        <input type="text" name="IA2" placeholder="Enter IA2 score" required="required" />
+		<input type="text" name="IA3" placeholder="Enter IA3 score" required="required" />
+        <input type="text" name="AVG" placeholder="Enter Average IA score" required="required" />
+
+        <button type="submit" class="btn">Predict</button>
+    </form>
+   <div class="disc">
+     <p> <h4> Disclaimer: This Machine Learning model is trained using previous year data from 17CS73. Your exact score in AIML may differ </h4> </p>
+    </div>
+   <br>
+   <br>
+   {{ prediction_text }}
+ </div>
+
+ <div class="footer">
+  <p> <h5> &copy; Copyright 2022 Nagesh U.B </h5> </p>
+</div>
+</body>
+</html>
