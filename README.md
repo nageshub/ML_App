@@ -1,1 +1,1 @@
-https://nagesh-ml.herokuapp.com/predict
+https://nagesh-ml.herokuapp.com/
